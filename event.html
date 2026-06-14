@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ED. Visual Campaigns</title>
+  <meta name="description" content="A curated portfolio of visual campaigns for events: posters, social content, and short-form video." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="event.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Portfolio</p>
+          <h1>Events Department Visual Campaigns</h1>
+          <p class="sub">A curated selection of my latest visual works for Events Department and social media campaigns.</p>
+          <p class="muted">Focused on poster design, social visuals, and short-form video for TikTok & Facebook.</p>
+        </div>
+        <nav class="hero-links">
+          <a href="#works" class="btn">View Featured Works</a>
+          <a href="#contact" class="btn ghost">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section id="works" class="section works">
+      <div class="section-head">
+        <h2>Featured Works</h2>
+        <p class="muted">Selected projects — emphasis on visual storytelling and campaign impact.</p>
+      </div>
+
+      <div class="works-grid">
+        <article class="work-tiktok card">
+          <div class="media media-video" role="button" tabindex="0" data-type="video" data-title="Festival Teaser" data-desc="TikTok Teaser — fast cuts, punchy LUT, event highlights">
+            <div class="video-placeholder">
+              <div class="play">▶</div>
+            </div>
+          </div>
+          <div class="meta">
+            <h3>Lưu ý khi tham gia Lễ Tốt nghiệp.</h3>
+            <span class="chip">TikTok - Facebook Video</span>
+            <p class="desc">Short-form teaser for the summer festival campaign.</p>
+          </div>
+        </article>
+
+        <div class="posters-grid">
+          <article class="poster card" data-type="image" data-title="Night Market" data-desc="Facebook Poster — neon palette, bold typography">
+            <div class="media media-image" style="background-image:url('https://www.facebook.com/photo?fbid=1387517373403625&set=a.459915209497184')"></div>
+            <div class="meta">
+              <h3>30/4/2026</h3>
+              <span class="chip">Facebook Poster</span>
+              <p class="desc">Mừng ngày Giải phóng Miền Nam Thống nhất Đất nước.</p>
+            </div>
+          </article>
+
+          <article class="poster card" data-type="image" data-title="Launch Gala" data-desc="Facebook Poster — elegant, premium treatment">
+            <div class="media media-image" style="background-image:url('https://www.facebook.com/photo?fbid=1387517373403625&set=a.459915209497184')"></div>
+            <div class="meta">
+              <h3>Kết quả Minigames</h3>
+              <span class="chip">Facebook Poster</span>
+              <p class="desc">Công bố cuộc thi ảnh tết</p>
+            </div>
+          </article>
+
+          <article class="poster card" data-type="image" data-title="Street Fair" data-desc="Facebook Poster — playful, colorful composition">
+            <div class="media media-image" style="background-image:url('https://www.facebook.com/photo?fbid=1387517373403625&set=a.459915209497184')"></div>
+            <div class="meta">
+              <h3>Lễ Tốt nghiệp HUB 2026</h3>
+              <span class="chip">TikTok Video</span>
+              <p class="desc">Chào mừng đến với Lễ tốt nghiệp tại HUB 2026.</p>
+            </div>
+          </article>
+
+          <article class="poster card" data-type="image" data-title="Design Summit" data-desc="Facebook Poster — editorial, bold typography">
+            <div class="media media-image" style="background-image:url('https://www.facebook.com/photo?fbid=1387517373403625&set=a.459915209497184')"></div>
+            <div class="meta">
+              <h3>Lễ Tốt nghiệp HUB 2025</h3>
+              <span class="chip">TikTok Video</span>
+              <p class="desc">Content Lễ Tốt nghiệp HUB 2025</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact" class="footer">
+      <div class="footer-inner">
+        <div>
+          <h4>Phúc Nguyễn Lâm</h4>
+          <p class="muted">Visual storyteller for event campaigns & digital content</p>
+        </div>
+        <div class="links">
+          <a href="https://zalo.me/0397237413" class="link">Zalo</a>
+          <a href="https://www.tiktok.com/@phuccnguyennlaam" class="link">TikTok</a>
+          <a href="https://www.facebook.com/phucnguyenlam1511207" class="link">Facebook</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-inner" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button id="modal-close" class="modal-close" aria-label="Close">✕</button>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    // Basic modal & animation JS
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
+    const closeBtn = document.getElementById('modal-close');
+
+    function openModal(type, title, desc, src) {
+      modalBody.innerHTML = '';
+      if (type === 'video') {
+        const v = document.createElement('div');
+        v.className = 'video-embed';
+        v.innerHTML = '<div class="video-placeholder large"><div class="play">▶</div></div>';
+        modalBody.appendChild(v);
+      } else {
+        const img = document.createElement('div');
+        img.className = 'image-embed';
+        img.style.backgroundImage = `url(${src})`;
+        modalBody.appendChild(img);
+      }
+      modal.setAttribute('aria-hidden','false');
+      modal.classList.add('open');
+    }
+
+    function closeModal() {
+      modal.setAttribute('aria-hidden','true');
+      modal.classList.remove('open');
+      modalBody.innerHTML = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+    document.querySelectorAll('[data-type]').forEach(el => {
+      el.addEventListener('click', () => {
+        const type = el.getAttribute('data-type');
+        const title = el.getAttribute('data-title');
+        const desc = el.getAttribute('data-desc');
+        let src = '';
+        const media = el.querySelector('.media');
+        if (media && media.style && media.style.backgroundImage) src = media.style.backgroundImage.slice(5, -2);
+        openModal(type, title, desc, src);
+      });
+      el.addEventListener('keydown', (e) => { if (e.key === 'Enter') el.click(); });
+    });
+
+    // Simple fade-in on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('reveal');
+      });
+    }, { threshold: 0.18 });
+
+    document.querySelectorAll('.card, .section-head, .case-card').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
